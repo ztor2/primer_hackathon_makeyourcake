@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>케이크 디자인 생성기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- <a href="javascript:void(0);" onclick="loadContent('index')">MakeYourCake</a> -->
+            <a href="index.html">MakeYourCake</a>
+            <a href="javascript:void(0);" onclick="loadContent('myorder')">나의 주문</a>
+            <a href="javascript:void(0);" onclick="loadContent('contact')">고객센터</a>
+        </nav>
+    </header>
+    <div id="content">
+        <p>1) 케이크 템플릿을 선택하세요: </p>
+        <div class="template-section">
+            <!-- 케이크 템플릿 이미지들 -->
+            <img src="https://static.vecteezy.com/system/resources/previews/023/841/038/original/strawberry-chocolate-cream-cake-character-png.png" data-id="1" class="selected" onclick="selectImage(this)">
+            <img src="https://static.vecteezy.com/system/resources/previews/023/841/038/original/strawberry-chocolate-cream-cake-character-png.png" data-id="2" onclick="selectImage(this)">
+            <img src="https://static.vecteezy.com/system/resources/previews/023/841/038/original/strawberry-chocolate-cream-cake-character-png.png" data-id="3" onclick="selectImage(this)">
+        </div>
+        <p>2) 케이크 디자인을 상세하게 설명해주세요: </p>
+        <div class="description-section">
+            <!-- 케이크 디자인 설명 입력 -->
+            <textarea id="cakeDescription" placeholder="예시) 붉은 장미꽃, 별모양 장식"></textarea>
+            <button onclick="generateDesign()">케이크 디자인 생성</button>
+        </div>
+        <div class="result-section">
+            <!-- 생성된 케이크 디자인 표시 -->
+            <img id="resultImage" src="img/design_pre.jpg">
+        </div>
+        <div class="action-buttons">
+            <button onclick="resetDesign()">초기화 ↻</button>
+            <button onclick="selectDesign()">디자인 선택 ✓</button>
+        </div>
+    </div>
+    <script src="app/app.js"></script>
+</body>
+</html>

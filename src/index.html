@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeYourCake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">MakeYourCake</a>
+            <a href="javascript:void(0);" onclick="loadContent('myorder')">나의 주문</a>
+            <a href="javascript:void(0);" onclick="loadContent('contact')">고객센터</a>
+        </nav>
+    </header>
+    <div id="content">
+        <!-- Dynamic content goes here -->
+        <img src="https://static.vecteezy.com/system/resources/previews/023/841/038/original/strawberry-chocolate-cream-cake-character-png.png" alt="Custom Cake Designs" width=150>
+        <h1>MakeYourCake</h1>
+        <p>몇 번의 클릭만으로, 케이크를 디자인하고 주문제작 업체를 연결하세요.</p>
+        <button class="get-started" onclick="location.href='create.html'">시작하기</button>
+    </div>
+    <script>
+        function loadContent(pageName) {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("content").innerHTML = this.responseText;
+            }
+            xhttp.open("GET", pageName + ".html", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>
