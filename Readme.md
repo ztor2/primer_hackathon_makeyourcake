@@ -15,6 +15,6 @@ nodemon server.js
 6. 프론트엔드 서버(index.html) 실행(해당 파일 경로에서 실행)
 - vscode에서는 해당 html 파일 열고 우클릭 후 'Open in Default Browser' 클릭하면 됨
 ~~~
-start create.html # Windows
-open create.html # Mac
+start index.html # Windows
+open index.html # Mac
 ~~~
