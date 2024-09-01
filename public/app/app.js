@@ -24,7 +24,7 @@ function selectTemplate(templateId) {
 function resetDesign() {
     // 디자인 초기화
     document.getElementById("cakeDescription").value = "";
-    document.getElementById("resultImage").src = "img/design_pre.jpg";
+    document.getElementById("resultImage").src = "img/result_sample.jpg";
 }
 
 let selectedImageId = '1';
@@ -60,7 +60,7 @@ function generateDesign(event) {
     formData.append('imageId', selectedImageId); // 이미지 ID 추가
     formData.append('description', description); // 설명 추가
 
-    fetch('http://localhost:3000/api/generate-image', {
+    fetch('/api/generate-image', {
         method: 'POST',
         body: formData, // JSON 대신 FormData 사용
     })
@@ -81,7 +81,7 @@ function generateDesign(event) {
             resultImage.onerror = function() {
                 console.error('이미지 로드 실패:', imageUrl);
                 alert('이미지를 불러오는 데 실패했습니다.');
-                resultImage.src = 'img/design_pre.jpg'; // 기본 이미지로 복원
+                resultImage.src = 'img/result_sample.jpg'; // 기본 이미지로 복원
             };
         } else {
             throw new Error('유효한 이미지 URL을 받지 못했습니다.');
@@ -182,7 +182,7 @@ function loadOrders() {
             card.className = 'order-card';
 
             var img = document.createElement('img');
-            img.src = 'output/generated_1.jpeg'; 
+            img.src = 'output/result_generated_1.jpeg'; 
             img.alt = 'Order Image';
 
             var orderInfo = document.createElement('div');
