@@ -17,7 +17,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 // const PORT = 3000;
-// const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
+const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
 const upload = multer();
 
 app.use(cors());
@@ -45,7 +45,7 @@ app.post('/api/generate-image', upload.none(), async (req, res) => {
         validateStatus: undefined,
         responseType: "arraybuffer",
         headers: { 
-          Authorization: `Bearer sk-ynqn2GDo0RiOfFgjcS2UCOvL1CPoeLyRU2eNUydX7xdQnsw0`, 
+          Authorization: `Bearer ${STABILITY_API_KEY}`, 
           Accept: "image/*" 
         },
       },
