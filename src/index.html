@@ -3,34 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MakeYourCake</title>
+    <title>메이크유어케이크</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poor+Story:wght@400;700&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="img/cakeicon.png" type="image/png">
 </head>
 <body>
     <header>
+        <div class="logo-container">
+            <img src="img/logo.png" alt="MakeYourCake Logo" class="logo" onclick="location.href='index.html'">
+        </div>
         <nav>
-            <a href="index.html">MakeYourCake</a>
+            <!-- <a href="create.html">케이크 제작</a> -->
+            <a href="javascript:void(0);" onclick="loadContent('create')">케이크 제작</a>
             <a href="javascript:void(0);" onclick="loadContent('myorder')">나의 주문</a>
             <a href="javascript:void(0);" onclick="loadContent('contact')">고객센터</a>
         </nav>
     </header>
     <div id="content">
         <!-- Dynamic content goes here -->
-        <img src="https://static.vecteezy.com/system/resources/previews/023/841/038/original/strawberry-chocolate-cream-cake-character-png.png" alt="Custom Cake Designs" width=150>
-        <h1>MakeYourCake</h1>
-        <p>몇 번의 클릭만으로, 케이크를 디자인하고 주문제작 업체를 연결하세요.</p>
-        <button class="get-started" onclick="location.href='create.html'">시작하기</button>
+        <img src="img/main_img.png" id="mainImg" alt="Custom Cake Designs" width="150">
+        <!-- <h1>MakeYourCake</h1> -->
+        <br></br>
+        <h2>몇 번의 클릭만으로, 나만의 케이크를 디자인하고 주문해보세요.</h2>
+        <button class="get-started" onclick="loadContent('create')">시작하기</button>
     </div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script>
-        function loadContent(pageName) {
-            const xhttp = new XMLHttpRequest();
-            xhttp.onload = function() {
-                document.getElementById("content").innerHTML = this.responseText;
-            }
-            xhttp.open("GET", pageName + ".html", true);
-            xhttp.send();
-        }
+        
     </script>
+
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="app/app.js"></script>
 </body>
 </html>

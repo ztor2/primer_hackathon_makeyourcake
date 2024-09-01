@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeYourCake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="img/cakeicon.png" type="image/png">
+</head>
+<body>
+    <div id="content">
+    <!-- 상단 컨테이너: 주문 내역 카드 -->
+    <div class="container">
+        <h2>주문 내역</h2>
+        <div class="order-cards-container" id="orderCardsContainer">
+            <!-- 추가적인 카드들이 여기에 동적으로 추가됨 -->
+        </div>
+    </div>
+
+    <!-- 하단 컨테이너: 업체 수락 내역 테이블 -->
+    <div class="container">
+        <h2>주문 수락 내역</h2>
+        <table id="acceptance-table">
+            <thead>
+                <tr>
+                    <th>주문ID</th>
+                    <th>업체명</th>
+                    <th>견적</th>
+                    <th>연락처</th>
+                    <th>업체메시지</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 수락 내역 행들이 여기에 동적으로 추가됨 -->
+            </tbody>
+        </table>
+        <div class="payment-button-container">
+        <button id="payment-button" class='payment-button' onclick="proceedToPayment()">결제 진행</button>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

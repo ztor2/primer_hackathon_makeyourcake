@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeYourCake</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="img/cakeicon.png" type="image/png">
+</head>
+<body>
+    <div id="content">
+        <h3>나의 케이크 디자인:</h3>
+        <div class="cake-preview">
+            <img id="resultImagePreview" src="output/generated_1.jpeg" alt="Generated Cake Design">
+        </div>
+
+        <div class="order-details">
+            <h3>지역을 입력하세요:</h3>
+            <input type="text" id="postcode" placeholder="우편번호">
+            <input type="button" onclick="execDaumPostcode()" value="주소검색"><br>
+            <input type="text" id="address" placeholder="주소"><br>
+            
+            <h3>픽업 날짜를 선택하세요:</h3>
+            <input type="date" id="needDate" name="needDate">
+            <h3>추가 요청사항을 입력해주세요:</h3>
+            <textarea id="extradetail" placeholder="예시) 5개의 초와 폭죽 2개가 필요해요."></textarea>
+            <div class="action-buttons">
+                <button onclick="registerOrder()">케이크 주문 등록  ✓</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

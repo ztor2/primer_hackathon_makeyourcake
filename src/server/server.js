@@ -52,9 +52,9 @@ app.post('/api/generate-image', upload.none(), async (req, res) => {
     );
 
     if (response.status === 200) {
-      const outputFilePath = path.join(__dirname, `../output/generated_${imageId}.jpeg`);
+      const outputFilePath = path.join(__dirname, `../output/result_generated_${imageId}.jpeg`);
       fs.writeFileSync(outputFilePath, Buffer.from(response.data));
-      res.status(200).json({ imageUrl: `../src/output/generated_${imageId}.jpeg` });
+      res.status(200).json({ imageUrl: `../output/result_generated_${imageId}.jpeg` });
     } else {
       res.status(response.status).send(response.data.toString());
     }
