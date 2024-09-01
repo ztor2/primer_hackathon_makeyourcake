@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메이크유어케이크</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poor+Story:wght@400;700&family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="img/cakeicon.png" type="image/png">
+</head>
+<body>
+
+    <div class="container">
+        <h2>결제 정보</h2>
+        <!-- selectedAcceptance 데이터를 표시할 표 -->
+        <table>
+            <tr>
+                <th>주문ID</th>
+                <td id="order-id"></td>
+            </tr>
+            <tr>
+                <th>업체명</th>
+                <td id="company-name"></td>
+            </tr>
+            <tr>
+                <th>견적</th>
+                <td id="price"></td>
+            </tr>
+            <tr>
+                <th>연락처</th>
+                <td id="contact"></td>
+            </tr>
+            <tr>
+                <th>업체메시지</th>
+                <td id="message"></td>
+            </tr>
+        </table>
+    <br></br>
+    <h2>결제 수단</h2>
+    <div class="input-group">
+            <input type="text" maxlength="4" placeholder="1234">
+            <input type="text" maxlength="4" placeholder="5678">
+            <input type="text" maxlength="4" placeholder="9012">
+            <input type="text" maxlength="4" placeholder="3456">
+    </div>
+
+    <!-- CVC 입력창 -->
+    <div class="cvc-group">
+        <input type="text" maxlength="3" placeholder="CVC">
+    </div>
+
+        <!-- 결제하기 버튼 -->
+    <button class='payment-button' onclick="submitPayment()">결제하기</button>
+    </div>
+</body>
+</html>

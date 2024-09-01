@@ -1,0 +1,127 @@
+#content {
+    /* width: 100%; /* 원하는 너비 설정 (px, %, em 등 사용 가능) */
+    /* max-width: 1200px; */ 
+    padding: 20px;
+    text-align: center;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7effc;
+    margin: 0;
+    padding: 0;
+    /* display: flex; Flexbox 적용 */
+    /* justify-content: center; 중앙 정렬 */
+}
+
+header {
+    background-color: #b076eb;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+nav a {
+    font-family: 'Roboto', sans-serif;
+    width: 20%;
+    max-width: 200px;
+    font-size: 24px;
+    color: #fefbff;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    color: #7be4db;
+}
+
+.get-started {
+    background-color: #FF6347; /* A vibrant tomato red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#content {
+    max-width: 600px; /* 최대 너비를 960px로 설정 */
+    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동으로 설정하여 중앙 정렬 */
+    padding: 20px; /* 내부 여백을 추가하여 콘텐츠가 너무 국경에 붙지 않도록 설정 */
+    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+}
+
+.template-section, .description-section, .result-section, .action-buttons {
+    display: flex;
+    justify-content: space-around; /* 내용물 사이에 공간을 동등하게 배분 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.template-section img {
+    flex: 1; /* 플렉스 아이템이 가용 공간을 동일하게 차지하도록 설정 */
+    margin: 0.5%; /* 주변 여백 */
+    max-width: 32%; /* 최대 너비 제한 */
+    height: 150px; /* 높이 자동 조절 */
+}
+
+.description-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description-section textarea {
+    flex: none;
+    width: 90%;
+    height: 65px;
+    margin: 10px 0;
+    resize: none; /* 크기 조절 비활성화 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    border: 2px solid #cccccc; /* 테두리 색상과 스타일 설정 */
+    padding: 8px; /* 내부 여백 */
+    transition: border-color 0.3s; /* 테두리 색상 변경 효과 부드럽게 */
+    background-color: #f8f8f8; /* 배경색 */
+    color: #333; /* 텍스트 색상 */
+}
+
+/* .description-section textarea:focus { 
+    border-color: #0056b3; /* 포커스 시 테두리 색상 변경 */
+/* }  */
+
+.description-section button {
+    flex: none;
+    width: 93%;
+    margin: 10px 0;
+    padding: 9px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    transition: background-color 0.3s; /* 색상 변경 시 부드러운 전환 효과 */
+    font-size: 16px;
+}
+
+.result-section img {
+    margin: 5px 0;
+    width: 60%; /* 결과 이미지가 컨테이너 너비 전체를 차지 */
+    height: auto; /* 높이 자동 조절 */
+}
+
+.action-buttons button {
+    flex: 1; /* 각 버튼이 가용 공간을 동일하게 차지하도록 설정 */
+    margin: 10px 0.9%; /* 위 여백을 20px로 설정하여 간격 늘림 */
+    padding: 10px 0; /* 상하 내부 여백을 12px로 설정하여 버튼 높이 증가 */
+    background-color: #007BFF; /* 버튼 색상을 밝은 파란색으로 변경 */
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
+    border: none; /* 테두리 제거 (필요시 추가) */
+    border-radius: 5px; /* 버튼 모서리를 약간 둥글게 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    transition: background-color 0.3s; /* 색상 변경 시 부드러운 전환 효과 */
+    font-size: 16px;
+}
+
+.selected {
+    border: 3px solid #4CAF50; /* 선택된 이미지에 초록색 테두리 추가 */
+    border-radius: 8px; /* 테두리를 둥글게 */
+}

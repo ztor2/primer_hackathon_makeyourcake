@@ -1,54 +1,112 @@
-#content {
-    /* width: 100%; /* 원하는 너비 설정 (px, %, em 등 사용 가능) */
-    /* max-width: 1200px; */ 
-    padding: 20px;
-    text-align: center;
-}
-
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7effc;
+    color: #333;
+    background-color: #f7f7f7;
+    text-align: center;
     margin: 0;
     padding: 0;
-    /* display: flex; Flexbox 적용 */
-    /* justify-content: center; 중앙 정렬 */
 }
 
 header {
-    background-color: #b076eb;
-    padding: 10px 20px;
-    text-align: center;
+    background-color: #f7f7f7;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer; /* 손 모양의 커서로 변경 */
+}
+
+nav {
+    background-color: #1e1e1e ;
+    padding: 15px 0; /* 네비게이션 바 두께 증가 */
+    font-family: 'Poor Story', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0; /* 추가된 마진 제거 */
+    border-bottom: 0px solid #999; /* 혹시나 있을 수 있는 회색 노출 방지 */
 }
 
 nav a {
-    font-family: 'Roboto', sans-serif;
-    width: 20%;
-    max-width: 200px;
-    font-size: 24px;
-    color: #fefbff;
-    text-decoration: none;
+    color: #ffffff;
     margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #7be4db;
+    color: #87ceeb;
+}
+
+#content {
+    max-width: 620px; /* 최대 너비를 960px로 설정 */
+    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동으로 설정하여 중앙 정렬 */
+    padding: 0px; /* 내부 여백을 추가 */
+    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+}
+
+#mainImg {
+    width: 400px; /* 우편번호 필드의 너비 */
+    border: 2px #aeaeae;
+    border-radius: 10px;
+}
+
+h1 {
+    /* font-family: 'Playfair Display', serif; */
+    font-size: 36px;
+    color: #555;
+}
+
+h3 {
+    text-align: left; /* 텍스트를 왼쪽으로 정렬 */
+}
+
+p {
+    font-size: 18px;
+    color: #777;
 }
 
 .get-started {
-    background-color: #FF6347; /* A vibrant tomato red */
-    color: white;
+    width: 150px;
+    background-color: #a00c36;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
     margin-top: 20px;
+    border-radius: 5px;
 }
 
-#content {
-    max-width: 600px; /* 최대 너비를 960px로 설정 */
-    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동으로 설정하여 중앙 정렬 */
-    padding: 20px; /* 내부 여백을 추가하여 콘텐츠가 너무 국경에 붙지 않도록 설정 */
-    box-sizing: border-box; /* 패딩과 테두리를 너비에 포함 */
+.get-started:hover {
+    background-color: #a00c36;
+}
+
+.success-img {
+    width: 150px;  /* 원하는 너비로 설정 */
+    height: 150px; /* 원하는 높이로 설정 */
+    clip-path: circle(50% at 50% 50%); /* 이미지의 중심에서 반지름 50%로 원형 자르기  */
+    object-fit: cover; /* 이미지가 영역을 채우도록 조정 */
+}
+
+.check-myorder {
+    width: 200px;
+    background-color: #a00c36;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
 }
 
 .template-section, .description-section, .result-section, .action-buttons {
@@ -59,9 +117,11 @@ nav a:hover {
 
 .template-section img {
     flex: 1; /* 플렉스 아이템이 가용 공간을 동일하게 차지하도록 설정 */
-    margin: 0.5%; /* 주변 여백 */
+    margin: 0.8%; /* 주변 여백 */
     max-width: 32%; /* 최대 너비 제한 */
     height: 150px; /* 높이 자동 조절 */
+    border: 2px #aeaeae;
+    border-radius: 10px;
 }
 
 .description-section {
@@ -82,6 +142,7 @@ nav a:hover {
     transition: border-color 0.3s; /* 테두리 색상 변경 효과 부드럽게 */
     background-color: #f8f8f8; /* 배경색 */
     color: #333; /* 텍스트 색상 */
+    font-size: 17px;
 }
 
 /* .description-section textarea:focus { 
@@ -93,35 +154,252 @@ nav a:hover {
     width: 93%;
     margin: 10px 0;
     padding: 9px 0;
-    background-color: #007BFF;
+    background-color: #a00c36;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer; /* 마우스 오버 시 커서 변경 */
     transition: background-color 0.3s; /* 색상 변경 시 부드러운 전환 효과 */
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.result-section img {
+/* .result-section img { */
+    /* margin: 5px 0; */
+    /* width: 60%; 결과 이미지가 컨테이너 너비 전체를 차지 */
+    /* height: auto; 높이 자동 조절 */
+    /* border: 2px #aeaeae; */
+    /* border-radius: 10px; */
+/* } */
+
+.result-image {
     margin: 5px 0;
     width: 60%; /* 결과 이미지가 컨테이너 너비 전체를 차지 */
     height: auto; /* 높이 자동 조절 */
+    border: 2px #aeaeae;
+    border-radius: 10px;
+}
+
+.spinner-image {
+    margin: 120px 0;
+    width: 10%; /* 결과 이미지가 컨테이너 너비 전체를 차지 */
+    height: auto; /* 높이 자동 조절 */
+    border: 2px #aeaeae;
+    border-radius: 10px;
 }
 
 .action-buttons button {
     flex: 1; /* 각 버튼이 가용 공간을 동일하게 차지하도록 설정 */
-    margin: 10px 0.9%; /* 위 여백을 20px로 설정하여 간격 늘림 */
+    margin: 20px 0.9%; /* 위 여백을 20px로 설정하여 간격 늘림 */
     padding: 10px 0; /* 상하 내부 여백을 12px로 설정하여 버튼 높이 증가 */
-    background-color: #007BFF; /* 버튼 색상을 밝은 파란색으로 변경 */
+    background-color: #a00c36; /* 버튼 색상을 밝은 파란색으로 변경 */
     color: white; /* 텍스트 색상을 흰색으로 변경 */
     border: none; /* 테두리 제거 (필요시 추가) */
     border-radius: 5px; /* 버튼 모서리를 약간 둥글게 */
     cursor: pointer; /* 마우스 오버 시 커서 변경 */
     transition: background-color 0.3s; /* 색상 변경 시 부드러운 전환 효과 */
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.selected {
-    border: 3px solid #4CAF50; /* 선택된 이미지에 초록색 테두리 추가 */
+.template-section img.selected {
+    border: 3px solid #a00c36; /* 선택된 이미지에 초록색 테두리 추가 */
     border-radius: 8px; /* 테두리를 둥글게 */
+}
+
+.cake-preview img {
+    margin: 5px 0;
+    width: 30%; /* 결과 이미지가 컨테이너 너비 전체를 차지 */
+    height: auto; /* 높이 자동 조절 */
+    border: 2px #aeaeae;
+    border-radius: 10px;
+}
+
+input[type="text"] {
+    padding: 10px; /* 입력 필드의 내부 여백을 추가 */
+    margin-bottom: 10px; /* 입력 필드 간의 간격 추가 */
+    font-size: 16px; /* 글자 크기 조정 */
+}
+
+#postcode {
+    width: 100px; /* 우편번호 필드의 너비 */
+    background-color: #f0f0f0; /* 우편번호 필드의 배경색 */
+    border-radius: 5px;
+}
+
+/* 주소 입력 필드에만 적용되는 스타일 */
+#address {
+    width: 300px; /* 주소 필드의 너비 */
+    background-color: #ffffff; /* 주소 필드의 배경색 */
+    border: 2px solid #ccc; /* 주소 필드의 테두리 */
+    border-radius: 5px;
+}
+
+#extradetail {
+    flex: none;
+    width: 95%;
+    height: 65px;
+    margin: 0px 0;
+    resize: none; /* 크기 조절 비활성화 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    border: 2px solid #cccccc; /* 테두리 색상과 스타일 설정 */
+    padding: 8px; /* 내부 여백 */
+    transition: border-color 0.3s; /* 테두리 색상 변경 효과 부드럽게 */
+    background-color: #f8f8f8; /* 배경색 */
+    color: #333; /* 텍스트 색상 */
+    font-size: 17px;
+}
+
+/* 우편번호 찾기 버튼 스타일 */
+input[type="button"] {
+    padding: 10px 20px; /* 버튼 크기 조정 */
+    font-size: 18px; /* 글자 크기 조정 */
+    margin-left: 5px; /* 우편번호 필드와 버튼 사이의 간격 조정 */
+    background-color: #a00c36; /* 버튼 색상을 밝은 파란색으로 변경 */
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
+    border: none;
+    border-radius: 5px; /* 버튼 모서리를 약간 둥글게 */
+}
+
+/* 날짜 입력 필드 기본 스타일 */
+input[type="date"] {
+    width: 200px; /* 입력 필드의 너비 */
+    padding: 10px; /* 입력 필드 내부 여백 */
+    font-size: 18px; /* 글자 크기 */
+    font-family: Arial, sans-serif; /* 폰트 스타일 */
+    color: #333; /* 글자 색상 */
+    background-color: #f9f9f9; /* 배경색 */
+    border: 2px solid #ccc; /* 테두리 스타일 */
+    border-radius: 5px; /* 모서리를 둥글게 */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* 내부 그림자 */
+}
+
+/* 날짜 입력 필드에 포커스가 되었을 때의 스타일 */
+input[type="date"]:focus {
+    border-color: #007bff; /* 포커스 시 테두리 색상 */
+    background-color: #ffffff; /* 포커스 시 배경색 */
+    outline: none; /* 기본 포커스 아웃라인 제거 */
+    box-shadow: 0 0 5px rgba(0,123,255,0.5); /* 포커스 시 그림자 */
+}
+
+/* 전체 입력 파트의 정렬을 왼쪽으로 설정 */
+.order-details {
+    text-align: left;
+}
+
+.container {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.order-cards-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.order-card {
+    background-color: white;
+    border: solid #e4e3e3;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.order-card img {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.order-info {
+    margin-left: 30px;
+    text-align: left;
+}
+
+.order-details {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.payment-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.payment-button {
+    width: 150px;
+    background-color: #a00c36;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.input-group input {
+    width: 15%;
+    padding: 15px;
+    font-size: 16px;
+    text-align: left;
+    margin-right: 10px; /* 각 input 요소 간의 간격 */
+    border: 1px solid #8d8b8b;
+    border-radius: 5px;
+}
+
+.input-group input:last-child {
+    margin-right: 0; /* 마지막 input 요소의 마진 제거 */
+}
+
+.cvc-group {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 20px;
+    margin-left: 45px;
+}
+.cvc-group input {
+    width: 12%;
+    height: 28px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #8d8b8b;
+    border-radius: 5px;
 }
