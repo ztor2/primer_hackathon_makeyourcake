@@ -16,8 +16,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-const PORT = 3000;
-const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
+// const PORT = 3000;
+// const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
 const upload = multer();
 
 app.use(cors());
@@ -28,8 +28,8 @@ app.post('/api/generate-image', upload.none(), async (req, res) => {
   try {
     const { imageId, description } = req.body;
 
-    const imagePath = path.join(__dirname, `../img/cake_template_${imageId}.png`);
-    const maskPath = path.join(__dirname, `../img/cake_template_mask_${imageId}.png`);
+    const imagePath = path.join(__dirname, `../public/img/cake_template_${imageId}.png`);
+    const maskPath = path.join(__dirname, `../public/img/cake_template_mask_${imageId}.png`);
 
     const payload = {
       image: fs.createReadStream(imagePath),
@@ -45,16 +45,16 @@ app.post('/api/generate-image', upload.none(), async (req, res) => {
         validateStatus: undefined,
         responseType: "arraybuffer",
         headers: { 
-          Authorization: `Bearer ${STABILITY_API_KEY}`, 
+          Authorization: `Bearer sk-ynqn2GDo0RiOfFgjcS2UCOvL1CPoeLyRU2eNUydX7xdQnsw0`, 
           Accept: "image/*" 
         },
       },
     );
 
     if (response.status === 200) {
-      const outputFilePath = path.join(__dirname, `../output/result_generated_${imageId}.jpeg`);
+      const outputFilePath = path.join(__dirname, `../public/output/result_generated_${imageId}.jpeg`);
       fs.writeFileSync(outputFilePath, Buffer.from(response.data));
-      res.status(200).json({ imageUrl: `../output/result_generated_${imageId}.jpeg` });
+      res.status(200).json({ imageUrl: `output/result_generated_${imageId}.jpeg` });
     } else {
       res.status(response.status).send(response.data.toString());
     }
@@ -64,8 +64,13 @@ app.post('/api/generate-image', upload.none(), async (req, res) => {
   }
 });
 
-app.use(express.static('public')); // 이미지와 정적 파일 제공
+// app.use(express.static('public')); // 이미지와 정적 파일 제공
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
+
+export default (req, res) => {
+  app(req, res);
+};
+
