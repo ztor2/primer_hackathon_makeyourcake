@@ -41,7 +41,7 @@ function selectImage(selectedImg) {
     console.log('Selected Image ID:', selectedImageId);
 }
 
-function generateDesign(event) {
+async function generateDesign(event) {
     if (event) event.preventDefault();
     const description = document.getElementById('cakeDescription').value;
 
@@ -54,11 +54,57 @@ function generateDesign(event) {
     resultImage.classList.remove('result-image')
     resultImage.classList.add('spinner-image');
 
+    let translatedDescription;
+
+    // 번역 작업
+    try {
+        const response = await fetch('/api/translate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ description }),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || 'Translation failed');
+        }
+
+        translatedDescription = data.translatedText;
+    } catch (error) {
+        console.error("Error translating text:", error);
+        alert("번역 작업 중 오류가 발생했습니다.");
+        return;  // 오류 발생 시 작업을 중단
+    }
+
+    // selectedImageId 값에 따라 텍스트 추가
+    let prefix = '';
+    switch (selectedImageId) {
+        case '1':
+            prefix = 'Round-shaped cake, ';
+            break;
+        case '2':
+            prefix = 'Square-shaped cake, ';
+            break;
+        case '3':
+            prefix = 'Two round-shaped cakes glued together at the top and bottom, ';
+            break;
+        default:
+            break;
+    }
+
+    // 최종 번역된 설명에 prefix를 추가
+    translatedDescription = prefix + translatedDescription;
+
+    console.log('prompt:', translatedDescription)
+
     const formData = new FormData(); // FormData 객체를 생성합니다.
 
     // FormData에 데이터 추가
     formData.append('imageId', selectedImageId); // 이미지 ID 추가
-    formData.append('description', description); // 설명 추가
+    formData.append('description', translatedDescription); // 설명 추가
 
     fetch('/api/generate-image', {
         method: 'POST',
@@ -182,7 +228,7 @@ function loadOrders() {
             card.className = 'order-card';
 
             var img = document.createElement('img');
-            img.src = 'output/result_generated_1.jpeg'; 
+            img.src = 'output/result_generated.jpeg'; 
             img.alt = 'Order Image';
 
             var orderInfo = document.createElement('div');
@@ -263,6 +309,7 @@ function loadAcceptances() {
             var firstAcceptance = acceptances[0]; // 첫 번째 데이터 사용
             selectRow(firstRow, firstAcceptance);
             }
+
         });
     }).catch(function(error) {
         console.error("주문 수락 데이터를 가져오는 중 에러가 발생했습니다: ", error);
@@ -274,14 +321,14 @@ var selectedAcceptance = null;
 function selectRow(row, acceptance) {
     // 모든 행의 선택 스타일 초기화
     var rows = document.querySelectorAll('#acceptance-table tbody tr');
-    rows.forEach(function(r) {
-        r.style.border = '';
-        r.classList.remove('selected');
-    });
+   rows.forEach(function(r) {
+       r.style.border = '';
+       r.classList.remove('selected');
+   });
 
-    // 선택된 행에 테두리 스타일 추가
-    row.style.border = '2px solid #a00c36';
-    row.classList.add('selected');
+   // 선택된 행에 테두리 스타일 추가
+   row.style.border = '2px solid #a00c36';
+   row.classList.add('selected');
 
     // 선택된 데이터를 저장
     selectedAcceptance = acceptance;
