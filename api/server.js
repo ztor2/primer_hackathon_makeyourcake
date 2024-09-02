@@ -16,7 +16,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const app = express();
-// const PORT = 3000;
+const PORT = 3000;
 const STABILITY_API_KEY = process.env.STABILITY_API_KEY;
 const upload = multer();
 
@@ -66,11 +66,11 @@ app.post('/api/generate-image', upload.none(), async (req, res) => {
 
 // app.use(express.static('public')); // 이미지와 정적 파일 제공
 
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+   console.log(`Server running on http://localhost:${PORT}`);
+ });
 
-export default (req, res) => {
-  app(req, res);
-};
+// export default (req, res) => {
+//   app(req, res);
+// };
 
