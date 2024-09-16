@@ -58,7 +58,7 @@ async function generateDesign(event) {
 
     // 번역 작업
     try {
-        const response = await fetch('/api/translate', {
+        const response = await fetch('http://localhost:3000/api/translate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ async function generateDesign(event) {
     formData.append('imageId', selectedImageId); // 이미지 ID 추가
     formData.append('description', translatedDescription); // 설명 추가
 
-    fetch('/api/generate-image', {
+    fetch('http://localhost:3000/api/generate-image', {
         method: 'POST',
         body: formData, // JSON 대신 FormData 사용
     })
